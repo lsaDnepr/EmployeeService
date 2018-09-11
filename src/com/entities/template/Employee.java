@@ -1,4 +1,4 @@
-package com.entities;
+package com.entities.template;
 
 import com.enumeration.Position;
 
@@ -8,6 +8,7 @@ public class Employee {
     private String name;
     private double rate;
     private int hours;
+    private int age;
     private Position position;
     private static int count;
     private static double totalSalary;
@@ -21,9 +22,10 @@ public class Employee {
         count++;
     }
 
-    public Employee(String name, double rate, int hours, Position position){
+    public Employee(String name, int age, double rate, int hours, Position position){
         this.name = name;
         this.rate=rate;
+        this.age = age;
         this.hours=hours;
         this.position=position;
         totalHours+=hours;
@@ -31,7 +33,11 @@ public class Employee {
         totalSalary+=salary();
     }
 
-   public String getPosition() {return this.position.toString();}
+    public int getAge() {
+        return age;
+    }
+
+    public String getPosition() {return this.position.toString();}
    public void setPosition(Position position) {this.position=position;};
     public double salary(){
         return  rate*hours;
@@ -48,8 +54,14 @@ public class Employee {
     }
 
     @Override
-    public String toString(){
-        return "Employee:"+": "+"name= "+this.name+", rate= "+this.rate+", hours= "+this.hours;
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", rate=" + rate +
+                ", hours=" + hours +
+                ", age=" + age +
+                ", position=" + position +
+                '}';
     }
 
     @Override
